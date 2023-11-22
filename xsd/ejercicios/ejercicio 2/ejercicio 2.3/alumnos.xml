@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="alumnos.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <alumnos>
+        <alumno>
+            <nombre>Aitor</nombre>
+            <ciudad>Pamplona </ciudad> 
+            <edad>25</edad>
+        </alumno>
+        <alumno>
+            <nombre>Irati </nombre>
+            <ciudad>Zaragoza </ciudad>
+            <edad>26</edad> 
+        </alumno>
+    </alumnos>
+
+</xs:schema>

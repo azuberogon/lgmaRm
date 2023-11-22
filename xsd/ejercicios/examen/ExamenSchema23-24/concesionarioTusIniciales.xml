@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="asd.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<concesionario numeroOFI="4">
+    <director>
+        <nombre>Mikel Justo Mendia</nombre>
+        <telefono movil="0034606478412"/>
+        <sede codpostal="31030">
+            <direccionCompleta>C/ Sanguesa 13 Bajo Pamplona</direccionCompleta>
+            <!-- <calle num="22">Sanguesa</calle> -->
+        </sede>     
+    </director>
+    <vehiculos vehiOFI="1" >
+        <responsable NIF="nf 22487558-R">
+            <nombre>Maite Mendia Pérez</nombre>
+            <telefono movil="0034606223344"></telefono>
+            <plantilla tipo="formación"/>
+        </responsable>   
+        <!-- <propietario>
+            <empresa/>
+            <contacto movil="" />
+        </propietario>  -->  
+        <modelo>Audi A1</modelo>
+        <modelo>Audi A3</modelo>
+        <modelo>Audi A4</modelo>
+    </vehiculos>           
+    <vehiculos vehiOFI="2" >
+        <propietario>
+            <empresa>SA CARS NOVO</empresa>
+            <contacto movil="0034606857485" />
+        </propietario>      
+        <modelo matricula="1000BCQ">Dacia Dokker</modelo>
+        <modelo matricula="2109CDA">Dacia Duster</modelo>
+    </vehiculos>
+    <vehiculos vehiOFI="4"  >
+        <responsable NIF="nf 21452565-L">
+            <nombre>Miren Pérez Andueza</nombre>
+            <telefono movil="0034606778844"/>
+            <plantilla tipo="temporal"/>
+        </responsable>
+        <modelo matricula="M1234BM">SEAT Ateca</modelo>
+        <modelo matricula="GD8998A">SEAT Arona</modelo>
+        <modelo matricula="LO12345">SEAT Leon</modelo>  
+    </vehiculos>
+</concesionario>
+    

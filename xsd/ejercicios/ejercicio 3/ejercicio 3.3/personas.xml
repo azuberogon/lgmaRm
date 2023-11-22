@@ -1,0 +1,14 @@
+
+<?xml-model href="personas.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<persona>
+
+     <dni>12345678Z</dni>
+
+    <nombre>pepe</nombre>
+
+     <apellidos>A.Z.</apellidos>
+
+     <fechaNacimiento>2201-01-01</fechaNacimiento>
+     <puntos>43</puntos>
+
+</persona>

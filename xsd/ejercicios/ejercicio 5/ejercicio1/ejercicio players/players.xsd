@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="players">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="player" maxOccurs="2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nickname">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="dni" type="dniType" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="age" type="xs:positiveInteger"/>
+              <xs:element name="birthday" type="xs:date"/>
+              <xs:element name="results">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="points" type="pointsType" minOccurs="3" maxOccurs="3"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="podium" type="xs:positiveInteger"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="dniType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{8}-[A-Z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pointsType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="6"/>
+      <xs:fractionDigits value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

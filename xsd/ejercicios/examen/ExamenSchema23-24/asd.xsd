@@ -1,0 +1,127 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/concesionario"
+           xmlns="http://www.example.com/concesionario"
+           elementFormDefault="qualified">
+
+  <!-- Definición de tipos globales -->
+  <xs:simpleType name="nonNegativeInteger">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mobileNumber">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="00346[0-9]{8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="postalCodeType">
+    <xs:restriction base="xs:integer">
+      <xs:minExclusive value="31000"/>
+      <xs:maxExclusive value="31031"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nifType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="nf [0-9]{8}-[A-Z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="concesionario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="director" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="xs:string"/>
+              <xs:element name="telefono" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:attribute name="movil" type="mobileNumber" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sede" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:element name="direccionCompleta" type="xs:string"/>
+                    <xs:element name="calle">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="num" type="xs:positiveInteger" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                  <xs:attribute name="codpostal" type="postalCodeType" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vehiculos" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="responsable" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nombre" type="xs:string"/>
+                    <xs:element name="telefono" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="movil" type="mobileNumber" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="plantilla" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="tipo" use="required">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="formación"/>
+                              <xs:enumeration value="temporal"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="NIF" type="nifType" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="propietario" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="empresa" minOccurs="1" maxOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="4"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="contacto" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="movil" type="mobileNumber" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="modelo" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="matricula" type="xs:string"/>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string"/>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="vehiOFI" type="xs:positiveInteger" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="numeroOFI" type="nonNegativeInteger" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="loteria.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<loteria>
+   <serie id="1" numero="17"/>
+   <serie id="2" numero="23"/>
+   <serie id="3" numero="65"/>
+</loteria>

@@ -1,0 +1,17 @@
+<library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="library.xsd"
+         nombre="Babel" nif="21354645D"> 
+    <book isbn="ASDFGH123"> 
+        <title lang="SP">El señor de los anillos</title>
+        <title lang="EN">The lord of the rings</title>
+        <author>
+            <date>2000-10-10</date>
+            <nationality>Sudafricana</nationality>
+        </author>
+        <publication date="1954-07-29"/> 
+    </book>
+    <description lang="SP">
+        Library <name>Babel</name> founded in <year>2002</year>. It was
+        a proposal of many literature lovers in <city>Pamplona</city>
+    </description>
+</library>

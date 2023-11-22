@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="ejercicio.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<movies>
+    <movie myStar="3">
+        
+        <title >the filfth element</title>
+        <yearRelased>1997</yearRelased>
+        <director>
+            <family>besson</family>
+            <givenName>luc</givenName>
+        </director>
+
+    </movie>
+    <movie myStar="5">
+        
+        <title >an american wewwolf in london</title>
+        <yearRelased>1981</yearRelased>
+        <director>
+            <family>landis</family>
+            <givenName>john</givenName>
+        </director>
+    </movie>
+</movies>

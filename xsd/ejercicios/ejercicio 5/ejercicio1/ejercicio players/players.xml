@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="players.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<players>
+   <!-- Se aceptan sólo 2 jugadores -->
+    <player podium="1">
+      <!-- Define el dni de forma global-->
+       <nickname dni="12345678-B">hakuna_matata</nickname>
+       
+       <age>18</age>
+       <!-- limitar la edad en el rango [0-100],
+       haz las dos formas local y global. Debes comentar una de las dos 
+      para que no da ningún error. -->
+       <birthday>1990-09-23</birthday>
+       <results>
+          <!-- Se aceptan como números reales que contienen hasta 
+            dos cifras enteras y hasta 3 cifras decimales -->
+          <points>1.980</points>
+          <points>23.647</points>
+          <points>29.384</points>
+      </results>
+    </player>
+    <player podium="2">
+      <nickname dni="87654321-W">asdf_fdsa</nickname>
+      <age>28</age>
+      <birthday>1996-02-13</birthday>
+      <results>
+          <points>5.980</points>
+          <points>13.647</points>
+          <points>19.384</points>
+      </results>
+    </player>
+</players>

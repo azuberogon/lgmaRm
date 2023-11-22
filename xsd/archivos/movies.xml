@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+    <movie myStars="3">
+        <title>The Fifth Element</title>
+        <yearReleased>1997</yearReleased>
+        <director>
+            <familyName>Besson</familyName>
+            <givenName>Luc</givenName>
+        </director>
+    </movie>
+    <movie myStars="5">
+        <title>An american Werewolf in London</title>
+        <yearReleased>1981</yearReleased>
+        <director>
+            <familyName>Landis</familyName>
+            <givenName>John</givenName>
+        </director>
+    </movie>
+</movies>

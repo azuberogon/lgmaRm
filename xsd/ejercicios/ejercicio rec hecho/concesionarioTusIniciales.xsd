@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="concesionario" type="concesionario"/>
+        
+    <xs:complexType name="concesionario">
+            <xs:sequence>
+                <xs:element name="director" type="directorType" maxOccurs="1" />
+                <xs:element name="vehiculos" type="vehiculosType" maxOccurs="unbounded" />
+            </xs:sequence>
+        <xs:attribute name="numeroOFI" type="xs:positiveInteger" use="required" />
+    </xs:complexType>
+
+        <!-- TelefonoType -->
+        <xs:complexType name="telefonoType">
+            <xs:attribute name="movil" use="required" type="movilType" />
+        </xs:complexType>
+        
+        <!-- movilType -->
+        <xs:simpleType name="movilType">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="00346[0-9]{8}"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <!-- DirectorType -->
+        <xs:complexType name="directorType">
+            <xs:sequence>
+                <xs:element name="nombre" type="nombreType" />
+                <xs:element name="telefono" type="telefonoType"/>
+                <xs:element name="sede" type="sedeType" />
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- sedeType -->
+        <xs:complexType name="sedeType">
+                
+                <xs:choice>
+                    <xs:element name="direccionCompleta" type="xs:string" />
+                    <xs:element name="calle" type="calleType" />
+                        
+                    
+               </xs:choice>
+           <xs:attribute name="codpostal" type="codpostalType" use="required" />
+        </xs:complexType>
+        
+        <!-- codpostalType -->
+        <xs:simpleType name="codpostalType">
+            <xs:restriction base="xs:integer">
+                <xs:minExclusive value="31000"/>
+                <xs:maxExclusive value="31031"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!-- calleType -->
+            <xs:complexType name="calleType">
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                   <xs:attribute name="num" type="xs:positiveInteger"
+                        use="required" />
+                  </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        <!-- nombreType -->
+        <xs:simpleType name="nombreType">
+            <xs:restriction base="xs:string">
+                <xs:minLength value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+    
+        <!-- vehiculosType -->    
+        <xs:complexType name="vehiculosType">
+            <xs:sequence>
+                 <xs:element name="responsable" type="responsableType" minOccurs="0" />
+                                
+                  
+                 <xs:element name="propietario" type="propietarioType" minOccurs="0"/>
+                                
+                  
+                  <xs:element name="modelo" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="matricula" type="matriculaType" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+         <xs:attribute name="vehiOFI" type="vehiOFIType" use="required" />
+        </xs:complexType>
+
+        <!-- vehiOFIType -->
+        <xs:simpleType name="vehiOFIType">
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="4"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!-- responsableType -->
+        <xs:complexType name="responsableType">
+             <xs:sequence>
+                <xs:element name="nombre" type="nombreType" />
+                <xs:element name="telefono" type="telefonoType"/>    
+                <xs:element name="plantilla">
+                   <xs:complexType>
+                       <xs:attribute name="tipo" type="tipoPlantilla" use="required" />
+                   </xs:complexType>
+                </xs:element>
+             </xs:sequence>
+            <xs:attribute name="NIF" type="NIFType" use="required" />
+        </xs:complexType>
+        
+        <!-- NIFType -->
+        <xs:simpleType name="NIFType">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="nf [0-9]{8}[-][A-Z]{1}"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!-- propietarioType -->
+        <xs:complexType name="propietarioType">
+                <xs:sequence>
+                    <xs:element name="empresa" type="nombreType" />
+                    <xs:element name="contacto">
+                       <xs:complexType>
+                          <xs:attribute name="movil" type="movilType" use="required" />
+                       </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+        </xs:complexType>
+        <!-- tipoPlantilla -->
+        <xs:simpleType name="tipoPlantilla">
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="formación"/>
+                <xs:enumeration value="temporal"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+
+        <!-- matriculaType -->
+        <xs:simpleType name="matriculaType">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[0-9]{4}[A-Z]{3}"/>
+                <xs:pattern value="[A-Z]{1}[0-9]{4}[A-Z]{2}"/>
+                <xs:pattern value="[A-Z]{2}[0-9]{4}[A-Z]{1}"/>
+                <xs:pattern value="[A-Z]{2}[0-9]{5}"/>
+            </xs:restriction>
+        </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nombre xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nombre.xsd">
+    <apellido>Marticorena</apellido>
+    <edad>30</edad>
+    <añoNacimiento>1981</añoNacimiento>
+</nombre>

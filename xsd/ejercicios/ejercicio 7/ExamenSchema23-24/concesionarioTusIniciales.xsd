@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="concesionario">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="director" >
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" maxOccurs="1"/>
+                            <xs:element name="telefono" type="typoMovil">
+                                <xs:complexType>
+                                    <xs:attribute name="movil" >
+                                        
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="numeroOFI"/>
+        </xs:complexType>
+    </xs:element>
+
+<xs:complexType name="typoMovil">
+    <xs:attribute name="movil">
+        <xs:simpleType >
+            <xs:restriction base="xs:integer">
+                <xs:pattern value=""></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+</xs:complexType>
+
+
+
+
+
+
+
+
+
+
+
+</xs:schema>
